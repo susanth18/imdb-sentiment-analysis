@@ -7,10 +7,14 @@ Download the dataset from Kaggle: [IMDB Dataset of 50K Movie Reviews](https://ww
 
 ## Steps to Set Up and Run the Project
 
-### 1. Upload Data to MySQL
-1. Open the `data_setup.py` file and replace the following fields with your MySQL credentials:
-   ```python
-   host="localhost",
-   user="root",
-   password="root",
-   database="movie"
+1. Ensure all dependencies are installed. Install them using the `requirements.txt`:
+   ```bash
+   pip install -r requirements.txt
+2. Start the Flask Server:
+   ```bash
+   python app.py
+3. The server will run locally at http://127.0.0.1:5000.
+
+There you can try using the Flask app.
+
+
