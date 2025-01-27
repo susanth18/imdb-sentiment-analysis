@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+
+    <div style="text-align: center;">
+        <h1>Sentiment Analysis</h1>
+        <p>Enter a review below and select a model to predict sentiment:</p>
+
+        <form id="review-form">
+            <textarea id="review_text" rows="4" cols="50" placeholder="Enter review here..." required></textarea><br><br>
+
+            <label for="model">Choose a model:</label>
+            <select id="model" required>
+                <option value="logistic_regression">Logistic Regression</option>
+                <option value="distilbert">DistilBERT</option>
+            </select><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="result" style="margin-top: 20px;">
+            <h2>Sentiment: <span id="sentiment">...</span></h2>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("review-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            var reviewText = document.getElementById("review_text").value;
+            var selectedModel = document.getElementById("model").value;
+
+            var data = {
+                review_text: reviewText,
+                model: selectedModel
+            };
+
+            fetch('http://127.0.0.1:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json()) 
+            .then(data => {
+                document.getElementById("sentiment").textContent = data.sentiment_prediction;
+            })
+            .catch(error => {
+                document.getElementById("sentiment").textContent = 'Error predicting sentiment.';
+            });
+        });
+    </script>
+
+</body>
+</html>
