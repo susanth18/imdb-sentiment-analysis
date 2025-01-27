@@ -50,6 +50,28 @@ Exploratory Data Analysis (EDA), including:
 Use the `test.py` script to
 
 
+## Model Info
+
+### Summary of the Chosen Model Approach:
+- The project involves training a **baseline sentiment analysis model** using **Logistic Regression** with **TF-IDF** features as the initial approach.
+- Additionally, a transformer-based model, **DistilBERT**, is used for comparison.
+
+### Key Results:
+
+#### Logistic Regression Model:
+- **Training Accuracy**: 0.9324
+- **Training Precision**: 0.9259
+- **Training Recall**: 0.9401
+- **Training F1-score**: 0.9329
+
+#### Test Set Results:
+- **Test Accuracy**: 0.8943
+- **Test Precision**: 0.8847
+- **Test Recall**: 0.9068
+- **Test F1-score**: 0.8956
+
+
+
 
 
 
