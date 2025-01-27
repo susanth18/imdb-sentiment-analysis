@@ -8,7 +8,7 @@ db = mysql.connector.connect(
     database="movie"
 )
 
-df = pd.read_csv('Dataset\\data.csv')
+df = pd.read_csv('data.csv')
 cursor = db.cursor()
 
 create_table_query = """
